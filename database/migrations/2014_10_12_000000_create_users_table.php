@@ -18,6 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('address',255)->nullable();
+            $table->string('phone_no',50)->nullable();;
+            $table->string('pincode',50)->nullable();;
+            $table->string('profilepic')->nullable();;
+            $table->integer('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,6 +36,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        //$table->dropForeign('role_id');
         Schema::dropIfExists('users');
     }
 }
