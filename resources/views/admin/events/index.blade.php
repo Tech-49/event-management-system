@@ -10,10 +10,10 @@
         <div class="card-header ">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="card-title">Role List</h4>
+                    <h4 class="card-title">Event List</h4>
                 </div>
                 <div class="col-md-6">
-                    <td><a href="{{ route('roles.create') }}" class="btn btn-primary pull-right">New</a></td>
+                    <td><a href="{{ route('events.create') }}" class="btn btn-primary pull-right">New</a></td>
                 </div>
             </div>
             <!-- <p class="card-category"></p> -->
@@ -23,29 +23,40 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Picture</th>
                         <th>Name</th>
-                       
+                        <th>Location</th>
+                        <th>No Of Ticket</th>
+                        <th>Price</th>
+                        <th>User Name</th>
                         <th>Action</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                     @foreach ($roles as $role)
+                     @foreach ($events as $event)
                     <tr>
 
-                        <td>{{ $role->id}}</td>
-                        <td>{{ $role->name }}</td>
+                        <td>{{ $event->id}}</td>
+                        <td><img src="{{ asset("img/$event->picture") }}" height="50" width="50"/></td>
+                        <td>{{ $event->name }}</td>
+                        <td>{{ $event->location}}</td>
+                        
+                        <td>{{ $event->no_of_ticket}}</td>
+                        <td>{{ $event->price }}</td>
+                        <td>{{ $event->user['name']}}</td>
+                        
                        
-                        <td><a href="{{ route('roles.edit',$role->id,'edit') }}" class="btn btn-info">Edit</a></td>
+                        <td><a href="{{ route('events.edit',$event->id,'edit') }}" class="btn btn-info">Edit</a></td>
                         <td>
                             {!! Form::open(
                                     array(
-                                        'route' => array('roles.destroy', $role->id),
+                                        'route' => array('events.destroy', $event->id),
                                         'method'=> 'DELETE'
                                     )
                                 )
                             !!}
-                            <button type='submit' class="btn btn-danger">
+                            <button type='submit' class="btn btn-danger" style="margin-top:8px;">
                                 Delete
                             </button>
                             {!! Form::close() !!}

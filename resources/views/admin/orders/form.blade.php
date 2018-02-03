@@ -6,20 +6,20 @@
         <div class="card-header">
         	
                 <h4 class="card-title">
-                    @if(isset($role))
-                        Edit Roles
+                    @if(isset($order))
+                        Edit Order
                     @else
-                        ADD Roles
+                        ADD Order
                     @endif
                 </h4>
         </div>
         <div class="card-body">
-             @if(isset($role))
+             @if(isset($order))
                 {!! Form::model(
-                    $role, ['route' => ['roles.update', $role->id],'method'=>'PATCH']
+                    $order, ['route' => ['orders.update', $order->id],'method'=>'PATCH']
                     ) !!}
              @else
-                {!! Form::open(['url' => 'roles']) !!}
+                {!! Form::open(['url' => 'orders']) !!}
              @endif
                 <div class="row">
                     <div class="col-md-6 pr-1">
@@ -31,10 +31,10 @@
                     </div>
                   
                 </div>
-                @if(isset($role))
-                    {!! Form::submit('UPDATE ROLE',['class' =>'btn btn-info btn-fill']); !!}
+                @if(isset($order))
+                    {!! Form::submit('UPDATE ORDER',['class' =>'btn btn-info btn-fill']); !!}
                 @else
-                    {!! Form::submit('ADD ROLE',['class' =>'btn btn-info btn-fill']); !!}
+                    {!! Form::submit('ADD ORDER',['class' =>'btn btn-info btn-fill']); !!}
                 @endif
                 <!-- <button type="submit" class="btn btn-info btn-fill">ADD ROLE</button> -->
                 <div class="clearfix"></div>

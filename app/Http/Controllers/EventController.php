@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Role;
-use DB;
+use App\Event;
 use Auth;
 
-class RoleController extends Controller
+use Illuminate\Http\Request;
+
+class EventController extends Controller
 {
+
 
 
     public function __construct(){
@@ -21,10 +22,9 @@ class RoleController extends Controller
     public function index()
     {
         //
-        $roles = Role::all();
-        //$roles=Role::get();
-        //dd($roles);
-        return view('admin.roles.index',compact('roles'));
+        $events=Event::with('user')->get();
+        //dd($events);
+        return view('admin.events.index',compact('events'));
     }
 
     /**
@@ -35,8 +35,7 @@ class RoleController extends Controller
     public function create()
     {
         //
-        //dd('create record..');
-        return view('admin.roles.form');
+        return view('admin.events.form');
     }
 
     /**
@@ -47,27 +46,39 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
 
-        $this->validate($request, [
+        $file = $request->file('picture');
+        $input['imagename']=time().'.'.$file->getClientOriginalExtension();
+        $destinationPath=public_path('img');
+        //dd($file);
+        $name = $file->getClientOriginalName();
+        //dd($name);
+        $file->move($destinationPath,$name);
+        
+         $this->validate($request, [
             'name' => 'required|max:100',
         ]);
 
         // $var = $request->toArray();
         // dd($var);
         $data=$request->except('[_token]');
-        $role=Role::create($data);
+        $data['user_id'] = Auth::user()->id;
+        $data['picture']=$name;
+        
+      //  dd($data);
 
-        return redirect()->route('roles.index')->with('sucess_message', 'Record Inserted Successfully..!');
+        $event=Event::create($data);
+
+        return redirect()->route('events.index')->with('sucess_message', 'Record Inserted Successfully..!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show(Event $event)
     {
         //
     }
@@ -75,24 +86,24 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit(Event $event)
     {
-        //
+
         //dd($role);
-         return view('admin.roles.form',compact('role'));
+         return view('admin.events.form',compact('event'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Role  $role
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, Event $event)
     {
         //
         $this->validate($request, [
@@ -101,23 +112,21 @@ class RoleController extends Controller
 
         // $var=$request->toArray();
         // dd($var);
-        $role->update($request->except('_token','_method'));
+        $event->update($request->except('_token','_method'));
 
-        return redirect()->route('roles.index')->with('sucess_message','Record Updated Successfully..');
+        return redirect()->route('events.index')->with('sucess_message','Record Updated Successfully..');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Role  $role
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy(Event $event)
     {
         //
-        // $var =$role->toArray();
-        // dd($var);
-        $role->delete();
-        return redirect()->route('roles.index')->with('success_message','Record Deleted successfully.');   
+        $event->delete();
+        return redirect()->route('events.index')->with('success_message','Record Deleted successfully.'); 
     }
 }

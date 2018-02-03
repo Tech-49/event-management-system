@@ -7,13 +7,13 @@
         </div>
         <ul class="nav">
             <li class="nav-item active">
-                <a class="nav-link" href="dashboard.html">
+                <a class="nav-link" href="#">
                     <i class="nc-icon nc-chart-pie-35"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="./user.html">
+                <a class="nav-link" href="{{route('roles.index')}}">
                     <i class="nc-icon nc-circle-09"></i>
                     <p>Role Management</p>
                 </a>
@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="./typography.html">
+                <a class="nav-link" href="{{route('events.index')}}">
                     <i class="nc-icon nc-paper-2"></i>
                     <p>Event Management</p>
                 </a>
