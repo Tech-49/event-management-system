@@ -8,6 +8,7 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
+
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 

@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,4 +23,3 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::resource('roles','RoleController');
 Route::resource('events','EventController');
 Route::resource('orders','OrderController');
-
