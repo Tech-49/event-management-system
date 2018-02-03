@@ -8,7 +8,8 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -60,6 +61,61 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <textarea  id="address" type="text" row="4" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+
+                                    @if ($errors->has('address'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('address') }}</strong>
+                                        </span>
+                                    @endif
+                                </textarea>
+                            </div>
+                        </div>
+                        <!-- -->
+                        <div class="form-group{{ $errors->has('phone_no') ? ' has-error' : '' }}">
+                            <label for="phone_no" class="col-md-4 control-label">Phone No</label>
+
+                            <div class="col-md-6">
+                                <input id="phone_no" type="text" class="form-control" name="phone_no" value="{{ old('phone_no') }}" required autofocus>
+
+                                @if ($errors->has('phone_no'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone_no') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('pincode') ? ' has-error' : '' }}">
+                            <label for="pincode" class="col-md-4 control-label">Pincode</label>
+
+                            <div class="col-md-6">
+                                <input id="pincode" type="text" class="form-control" name="pincode" value="{{ old('pincode') }}" required autofocus>
+
+                                @if ($errors->has('pincode'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('pincode') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('profilepic') ? ' has-error' : '' }}">
+                            <label for="profilepic" class="col-md-4 control-label">profilepic</label>
+
+                            <div class="col-md-6">
+                                <input id="profilepic" type="file" class="form-control" name="profilepic" value="{{ old('profilepic') }}" required autofocus>
+
+                                @if ($errors->has('profilepic'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('profilepic') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                       
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

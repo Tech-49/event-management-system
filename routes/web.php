@@ -6,5 +6,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/', 'DashboardController@index')->name('dashboard');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::resource('roles','RoleController');
+Route::resource('events','EventController');
+Route::resource('orders','OrderController');

@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+
     <div class=" container-fluid  ">
         <a class="navbar-brand" href="#pablo"> Dashboard </a>
         <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,14 +29,8 @@
                     </form>
                 </li>
             </ul>
-            <!-- <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#pablo">
-                        <span class="no-icon">Log out</span>
-                    </a>
-                </li>
-            </ul> -->
+            
         </div>
     </div>
 </nav>
-<!-- End Navbar
+
