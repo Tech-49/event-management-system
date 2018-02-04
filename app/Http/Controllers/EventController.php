@@ -92,7 +92,7 @@ class EventController extends Controller
     public function edit(Event $event)
     {
 
-        //dd($role);
+        //dd($event);
          return view('admin.events.form',compact('event'));
     }
 
@@ -106,13 +106,30 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         //
+
+        $file = $request->file('picture');
+        $data=$request->except('_token','_method','picture');
+        if(isset($file))
+        {
+            $destinationPath=public_path('img');
+            //dd($file);
+            $name = $file->getClientOriginalName();
+            //dd($name);
+            $file->move($destinationPath,$name);
+            //$request->request->remove('picture');
+            // $request->request->add(['picture'=> $name]);
+            $data['picture']=$name;
+        }
+
+        //dd($name);
+
         $this->validate($request, [
             'name' => 'required|max:100',
         ]);
 
-        // $var=$request->toArray();
-        // dd($var);
-        $event->update($request->except('_token','_method'));
+
+        //dd($data);
+        $event->update($data);
 
         return redirect()->route('events.index')->with('sucess_message','Record Updated Successfully..');
     }

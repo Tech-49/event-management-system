@@ -10,10 +10,10 @@
         <div class="card-header ">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="card-title">Role List</h4>
+                    <h4 class="card-title">Web Config List</h4>
                 </div>
                 <div class="col-md-6">
-                    <td><a href="{{ route('roles.create') }}" class="btn btn-primary" style="float:right;margin-right:50px;">New</a></td>
+                    <td><a href="{{ route('webconfigs.create') }}" class="btn btn-primary" style="float:right;margin-right:50px;">New</a></td>
                 </div>                
             </div>
             <div class="clearfix"></div>
@@ -24,24 +24,26 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Key</th>
+                        <th>Value</th>
                        
                         <th>Action</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                     @foreach ($roles as $role)
+                     @foreach ($webconfigs as $webconfig)
                     <tr>
 
-                        <td>{{ $role->id}}</td>
-                        <td>{{ $role->name }}</td>
+                        <td>{{ $webconfig->id}}</td>
+                        <td>{{ $webconfig->key }}</td>
+                        <td>{{ $webconfig->value }}</td>
                        
-                        <td><a href="{{ route('roles.edit',$role->id,'edit') }}" class="btn btn-info">Edit</a></td>
+                        <td><a href="{{ route('webconfigs.edit',$webconfig->id,'edit') }}" class="btn btn-info">Edit</a></td>
                         <td>
                             {!! Form::open(
                                     array(
-                                        'route' => array('roles.destroy', $role->id),
+                                        'route' => array('webconfigs.destroy', $webconfig->id),
                                         'method'=> 'DELETE'
                                     )
                                 )

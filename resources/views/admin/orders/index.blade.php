@@ -13,9 +13,10 @@
                     <h4 class="card-title">Order List</h4>
                 </div>
                 <div class="col-md-6">
-                    <td><a href="{{ route('orders.create') }}" class="btn btn-primary pull-right">New</a></td>
+                    <td><a href="{{ route('orders.create') }}" class="btn btn-primary" style="float:right;margin-right:50px;">New</a></td>
                 </div>
             </div>
+            <div class="clearfix"></div>
             <!-- <p class="card-category"></p> -->
         </div>
         <div class="card-body table-full-width table-responsive">

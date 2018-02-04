@@ -10,7 +10,7 @@
         <ul class="nav">
             <li class="nav-item active">
 
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="nc-icon nc-chart-pie-35"></i>
                     <p>Dashboard</p>
                 </a>
@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('users.index')}}">
 
                     <i class="nc-icon nc-notes"></i>
                     <p>User Management</p>

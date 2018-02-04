@@ -4,64 +4,66 @@
     <div class="card">
         <div class="card-header"> 	
         <h4 class="card-title">
-            @if(isset($event))
-                Edit Events
+            @if(isset($user))
+                Edit User
             @else
-                ADD Events
+                ADD User
             @endif
         </h4>
         </div>
         <div class="card-body">
             
-             @if(isset($event))
+             @if(isset($user))
                 {!! Form::model(
-                    $event, ['route' => ['events.update', $event->id],'method'=>'PATCH','files'=>true]
+                    $user, ['route' => ['users.update', $user->id],'method'=>'PATCH','files'=>true]
                     ) !!}
              @else
-                {!! Form::open(['url' => 'events','files'=>true]) !!}
+                {!! Form::open(['url' => 'users','files'=>true]) !!}
              @endif
                 <div class="row">
                     <div class="col-md-6 pr-1">
                         <div class="form-group">
-                            {!! Form::label('name', 'Event Name'); !!}
+                            {!! Form::label('name', 'Name'); !!}
                             {!! Form::text('name', null,['class' =>'form-control']); !!}
                             <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
                         </div>
                         <div class="form-group">
-                            {!! Form::label('description', 'Description'); !!}
-                            {!! Form::textarea('description', null,['class' =>'form-control']); !!}
+                            {!! Form::label('email', 'Email'); !!}
+                            {!! Form::text('email', null,['class' =>'form-control']); !!}
                             <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
                         </div>
                         <div class="form-group">
-                            {!! Form::label('location', 'Location'); !!}
-                            {!! Form::text('location', null,['class' =>'form-control']); !!}
+                            {!! Form::label('password', 'Password'); !!}
+                            {!! Form::text('password', null,['class' =>'form-control']); !!}
                             <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
                         </div>
                         <div class="form-group">
-                            {!! Form::label('picture', 'Picture'); !!}
-                            {!! Form::file('picture', null,['class' =>'form-control']); !!}
+                            {!! Form::label('address', 'Address'); !!}
+                            {!! Form::textarea('address', null,['class' =>'form-control']); !!}
                             <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
-                            @if(isset($event))
-                            <img src='{{ asset("img/$event->picture") }}' height="50" width="50"/>
-                            @endif
                         </div>
-                        <div class="form-group">
-                            {!! Form::label('no_of_ticket', 'No Of Ticket'); !!}
-                            {!! Form::text('no_of_ticket', null,['class' =>'form-control']); !!}
+                         <div class="form-group">
+                            {!! Form::label('phone_no', 'Phone No'); !!}
+                            {!! Form::text('phone_no', null,['class' =>'form-control']); !!}
                             <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
                         </div>
                         <div class="form-group">
-                            {!! Form::label('price', 'Price'); !!}
-                            {!! Form::text('price', null,['class' =>'form-control']); !!}
+                            {!! Form::label('pincode', 'Pincode'); !!}
+                            {!! Form::text('pincode', null,['class' =>'form-control']); !!}
                             <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
                         </div>
-                       
+                        <div class="form-group">
+                            {!! Form::label('profilepic', 'Picture'); !!}
+                            {!! Form::file('profilepic', null,['class' =>'form-control']); !!}
+                            <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
+                        </div>
+                        
                     </div>
                 </div>
-                @if(isset($event))
-                    {!! Form::submit('UPDATE Event',['class' =>'btn btn-info btn-fill']); !!}
+                @if(isset($user))
+                    {!! Form::submit('UPDATE USER',['class' =>'btn btn-info btn-fill']); !!}
                 @else
-                    {!! Form::submit('ADD Event',['class' =>'btn btn-info btn-fill']); !!}
+                    {!! Form::submit('ADD USER',['class' =>'btn btn-info btn-fill']); !!}
                 @endif
                 <!-- <button type="submit" class="btn btn-info btn-fill">ADD ROLE</button> -->
                 <div class="clearfix"></div>

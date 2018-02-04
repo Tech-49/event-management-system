@@ -64,6 +64,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+       //dump($data);
+        
+       $file = $data['profilepic'];
+       //dd($file);
+        // $data=$request->except('_token','_method','picture');
+      
+            $destinationPath=public_path('img');
+            //dd($file);
+            $name = $file->getClientOriginalName();
+            //dd($name);
+            $file->move($destinationPath,$name);
+            //$request->request->remove('picture');
+            // $request->request->add(['picture'=> $name]);
+           // $data['profilepic']=$name;
+                
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -71,7 +87,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'phone_no' => $data['phone_no'],
             'pincode' => $data['pincode'],
-            'profilepic' => $data['profilepic'],
+            'profilepic' => $name,
             
         ]);
     }

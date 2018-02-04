@@ -10,13 +10,13 @@
         <div class="card-header ">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="card-title">Role List</h4>
+                    <h4 class="card-title">User List</h4>
                 </div>
                 <div class="col-md-6">
-                    <td><a href="{{ route('roles.create') }}" class="btn btn-primary" style="float:right;margin-right:50px;">New</a></td>
-                </div>                
+                    <td><a href="{{ route('users.create') }}" class="btn btn-primary" style="float:right;margin-right:50px;">New</a></td>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
             <!-- <p class="card-category"></p> -->
         </div>
         <div class="card-body table-full-width table-responsive">
@@ -24,29 +24,41 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Picture</th>
                         <th>Name</th>
-                       
+                        <th>Email</th>      
+                        <th>Address</th>
+                        <th>Phone No</th>
+                        <th>Pincode</th>
+                        
                         <th>Action</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                     @foreach ($roles as $role)
+                     @foreach ($users as $user)
                     <tr>
 
-                        <td>{{ $role->id}}</td>
-                        <td>{{ $role->name }}</td>
+                        <td>{{ $user->id}}</td>
+                        <td><img src="{{ asset("img/$user->profilepic") }}" height="50" width="50"/></td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email}}</td>                  
                        
-                        <td><a href="{{ route('roles.edit',$role->id,'edit') }}" class="btn btn-info">Edit</a></td>
+                        <td>{{ $user->address }}</td>
+                        <td>{{ $user->phone_no}}</td>
+                        <td>{{ $user->pincode}}</td>
+                        
+                       
+                        <td><a href="{{ route('users.edit',$user->id,'edit') }}" class="btn btn-info">Edit</a></td>
                         <td>
                             {!! Form::open(
                                     array(
-                                        'route' => array('roles.destroy', $role->id),
+                                        'route' => array('users.destroy', $user->id),
                                         'method'=> 'DELETE'
                                     )
                                 )
                             !!}
-                            <button type='submit' class="btn btn-danger">
+                            <button type='submit' class="btn btn-danger" style="margin-top:8px;">
                                 Delete
                             </button>
                             {!! Form::close() !!}
