@@ -29,5 +29,10 @@ class HomeController extends Controller
         return view('welcome',compact('events'));
     }
 
+    public function event_detail($event_id)
+    {
+        //$event = Event::findOrFail($event_id);
 
+        return view('event_detail');
+    }
 }

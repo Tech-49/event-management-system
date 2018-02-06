@@ -7,6 +7,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/event-detail/{event_id}', 'HomeController@event_detail')->name('home');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::resource('roles','RoleController');
 Route::resource('events','EventController');
