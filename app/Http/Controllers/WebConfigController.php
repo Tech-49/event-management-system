@@ -65,7 +65,7 @@ class WebConfigController extends Controller
      * @param  \App\WebConfig  $webConfig
      * @return \Illuminate\Http\Response
      */
-    public function show(WebConfig $webConfig)
+    public function show(WebConfig $webconfig)
     {
         //
     }
@@ -79,8 +79,8 @@ class WebConfigController extends Controller
     public function edit(WebConfig $webconfig)
     {
         //
-        dd($webconfig);
-        return view('admin.webconfigs.form',compact('webConfig'));
+        //dd($webconfig);
+        return view('admin.webconfigs.form',compact('webconfig'));
     }
 
     /**
@@ -90,7 +90,7 @@ class WebConfigController extends Controller
      * @param  \App\WebConfig  $webConfig
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WebConfig $webConfig)
+    public function update(Request $request, WebConfig $webconfig)
     {
         //
         $this->validate($request, [
@@ -100,7 +100,7 @@ class WebConfigController extends Controller
 
         // $var=$request->toArray();
         // dd($var);
-        $webConfig->update($request->except('_token','_method'));
+        $webconfig->update($request->except('_token','_method'));
 
         return redirect()->route('webconfigs.index')->with('sucess_message','Record Updated Successfully..');
     }
@@ -111,10 +111,10 @@ class WebConfigController extends Controller
      * @param  \App\WebConfig  $webConfig
      * @return \Illuminate\Http\Response
      */
-    public function destroy(WebConfig $webConfig)
+    public function destroy(WebConfig $webconfig)
     {
         //
-        $webConfig->delete();
+        $webconfig->delete();
         return redirect()->route('webconfigs.index')->with('success_message','Record Deleted successfully.');   
     }
 }

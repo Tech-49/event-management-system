@@ -116,7 +116,20 @@ class UserController extends Controller
      */
     public function update(Request $request,User $user)
     {
-        //
+            //
+            $file = $request->file('profilepic');
+            $data=$request->except('_token','_method','profilepic');
+            if(isset($file))
+            {
+                $destinationPath=public_path('img');
+                //dd($file);
+                $name = $file->getClientOriginalName();
+                //dd($name);
+                $file->move($destinationPath,$name);
+                //$request->request->remove('picture');
+                // $request->request->add(['picture'=> $name]);
+                $data['profilepic']=$name;
+            }
 
          $this->validate($request, [
             'name' => 'required|max:100',
@@ -127,7 +140,7 @@ class UserController extends Controller
 
         // $var=$request->toArray();
         // dd($var);
-        $user->update($request->except('_token','_method'));
+        $user->update($data);
         return redirect()->route('users.index')->with('sucess_message','Record Updated Successfully..');
     }
 

@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
 
-
-
     public function __construct(){
         $this->middleware('auth');
     }
@@ -47,6 +45,7 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
+        //dd($request);
         $file = $request->file('picture');
         $input['imagename']=time().'.'.$file->getClientOriginalExtension();
         $destinationPath=public_path('img');
@@ -65,7 +64,7 @@ class EventController extends Controller
         $data['user_id'] = Auth::user()->id;
         $data['picture']=$name;
         
-      //  dd($data);
+        //dd($data);
 
         $event=Event::create($data);
 

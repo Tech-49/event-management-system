@@ -5,7 +5,7 @@
         <div class="card-header">
         	
                 <h4 class="card-title">
-                    @if(isset($webConfig))
+                    @if(isset($webconfig))
                         Edit Web Config
                     @else
                         ADD Web Config
@@ -13,9 +13,9 @@
                 </h4>
         </div>
         <div class="card-body">
-             @if(isset($webConfig))
+             @if(isset($webconfig))
                 {!! Form::model(
-                    $webConfig, ['route' => ['webconfigs.update', $webConfig->id],'method'=>'PATCH']
+                    $webconfig, ['route' => ['webconfigs.update', $webconfig->id],'method'=>'PATCH']
                     ) !!}
              @else
                 {!! Form::open(['url' => 'webconfigs']) !!}
@@ -35,7 +35,7 @@
                     </div>
                   
                 </div>
-                @if(isset($webConfig))
+                @if(isset($webconfig))
                     {!! Form::submit('UPDATE Config',['class' =>'btn btn-info btn-fill']); !!}
                 @else
                     {!! Form::submit('ADD Config',['class' =>'btn btn-info btn-fill']); !!}

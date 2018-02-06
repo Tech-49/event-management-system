@@ -29,6 +29,8 @@
                         <th>Location</th>
                         <th>No Of Ticket</th>
                         <th>Price</th>
+                        <th>S_Date</th>
+                        <th>E_Date</th>
                         <th>User Name</th>
                         <th>Action</th>
                         <th>Action</th>
@@ -39,12 +41,14 @@
                     <tr>
 
                         <td>{{ $event->id}}</td>
-                        <td><img src="{{ asset("img/$event->picture") }}" height="50" width="50"/></td>
+                        <td><img src='{{ asset("img/$event->picture") }}' height="50" width="50"/></td>
                         <td>{{ $event->name }}</td>
                         <td>{{ $event->location}}</td>
                         
                         <td>{{ $event->no_of_ticket}}</td>
                         <td>{{ $event->price }}</td>
+                        <td>{{ $event->start_date }}</td>
+                        <td>{{ $event->end_date }}</td>
                         <td>{{ $event->user['name']}}</td>
                         
                        

@@ -55,6 +55,27 @@
                             {!! Form::text('price', null,['class' =>'form-control']); !!}
                             <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
                         </div>
+                        <div class="form-group">
+
+                            {!! Form::label('start_date', 'Start Date'); !!}
+                            @if(isset($event))
+                            {!! Form::date('start_date', null,['class' =>'form-control']); !!}
+                            @else
+                            {!! Form::date('start_date', \Carbon\Carbon::now(),['class' =>'form-control']); !!}
+                            @endif
+                            <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('end_date', 'End Date'); !!}
+                            @if(isset($event))
+                            {!! Form::date('end_date', null,['class' =>'form-control']); !!}
+                            @else
+                            {!! Form::date('end_date', \Carbon\Carbon::now(),['class' =>'form-control']); !!}
+                            @endif
+
+                            
+                            <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
+                        </div>
                        
                     </div>
                 </div>

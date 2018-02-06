@@ -8,28 +8,28 @@
             </a>
         </div>
         <ul class="nav">
-            <li class="nav-item active">
+            <li class="nav-item {{Request::is('dashboard') ? 'active' : ''}}">
 
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="nc-icon nc-chart-pie-35"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li>
+            <li class="nav-item {{Request::is('roles') ? 'active' : ''}}">
 
                 <a class="nav-link" href="{{route('roles.index')}}">
                     <i class="nc-icon nc-circle-09"></i>
                     <p>Role Management</p>
                 </a>
             </li>
-            <li>
+            <li class="nav-item {{Request::is('users') ? 'active' : ''}}">
                 <a class="nav-link" href="{{route('users.index')}}">
 
                     <i class="nc-icon nc-notes"></i>
                     <p>User Management</p>
                 </a>
             </li>
-            <li>
+            <li class="nav-item {{Request::is('events') ? 'active' : ''}}">
 
                 <a class="nav-link" href="{{route('events.index')}}">
                     <i class="nc-icon nc-paper-2"></i>
@@ -42,8 +42,8 @@
                     <p>Order Management</p>
                 </a>
             </li>
-            <li>
-                <a class="nav-link" href="#">
+            <li class="nav-item {{Request::is('webconfigs') ? 'active' : ''}}">
+                <a class="nav-link" href="{{route('webconfigs.index')}}">
                     <i class="nc-icon nc-pin-3"></i>
                     <p>Site Settings</p>
                 </a>

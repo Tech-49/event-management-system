@@ -56,6 +56,9 @@
                             {!! Form::label('profilepic', 'Picture'); !!}
                             {!! Form::file('profilepic', null,['class' =>'form-control']); !!}
                             <!-- <input type="text" class="form-control" placeholder="Company" value=""> -->
+                            @if(isset($user))
+                            <img src='{{ asset("img/$user->profilepic") }}' height="50" width="50"/>
+                            @endif
                         </div>
                         
                     </div>
