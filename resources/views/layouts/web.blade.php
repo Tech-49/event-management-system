@@ -48,10 +48,10 @@
         <div id="fh5co-offcanvas">
             <a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
             <div class="fh5co-bio">
+                @if (!Auth::guest())
                 <figure>
                     <img src="images/person1.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive">
                 </figure>
-                @if (!Auth::guest())
                     <h2>{{ Auth::user()->name }}</h2>                
                 @endif
             </div>

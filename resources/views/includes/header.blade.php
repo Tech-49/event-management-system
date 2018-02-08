@@ -9,7 +9,7 @@
                 <li><a href="#"><i class="icon-instagram"></i></a></li>
             </ul>
             <div class="col-lg-12 col-md-12 text-center">
-                <h1 id="fh5co-logo"><a href="index.html"> {{ env('APP_NAME') }} <sup>TM</sup></a></h1>
+                <h1 id="fh5co-logo"><a href="#"> {{ env('APP_NAME') }} <sup>TM</sup></a></h1>
             </div>
         </div>
     </div>
