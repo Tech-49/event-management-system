@@ -20,7 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('picture',50);
             $table->integer('no_of_ticket',false,true)->length(10);
             $table->double('price');
-            $table->integer('user_id')->unsigned();;
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

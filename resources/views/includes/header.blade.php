@@ -4,9 +4,9 @@
         <div class="row">
             <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
             <ul class="fh5co-social">
-                <li><a href="#"><i class="icon-twitter"></i></a></li>
-                <li><a href="#"><i class="icon-facebook"></i></a></li>
-                <li><a href="#"><i class="icon-instagram"></i></a></li>
+                <li><a href="{{ \App\WebConfig::find(3)->value }}"><i class="icon-twitter"></i></a></li>
+                <li><a href="{{ \App\WebConfig::find(2)->value }}"><i class="icon-facebook"></i></a></li>
+                <li><a href="{{ \App\WebConfig::find(2)->value }}"><i class="icon-instagram"></i></a></li>
             </ul>
             <div class="col-lg-12 col-md-12 text-center">
                 <h1 id="fh5co-logo"><a href="#"> {{ env('APP_NAME') }} <sup>TM</sup></a></h1>

@@ -30,9 +30,9 @@ class HomeController extends Controller
     public function event_detail($event_id)
     {
         $event= Event::findOrFail($event_id);
-        $config=WebConfig::get();
+       
         //dd($config);
         //dd($event);
-        return view('event_detail',compact('event','config'));
+        return view('event_detail',compact('event'));
     }
 }
